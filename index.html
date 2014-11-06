@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8"/>
     <title>Bunny Defender</title>
-        <script src="lib/phaser.js"></script>
+    <script src="lib/phaser.js"></script>
+    <script src="lib/Boot.js"></script>
+    <script src="lib/Preloader.js"></script>
+    <script src="lib/StartMenu.js"></script>
+    <script src="lib/Game.js"></script>
     <style>
         body {
         padding: 0;
@@ -17,7 +21,12 @@
     <script type="text/javascript">
         window.onload = function(){
             var game = new Phaser.Game(540, 960, Phaser.AUTO, 'gameContainer');
+            game.state.add('Boot', BunnyDefender.Boot);
+            game.state.add('Preloader', BunnyDefender.Preloader);
+            game.state.add('StartMenu', BunnyDefender.StartMenu);
+            game.state.add('Game', BunnyDefender.Game);
             
+            game.state.start('Boot');
         }
     </script>
 </body>
